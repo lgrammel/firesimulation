@@ -1,32 +1,32 @@
-_c = (function() {
-  'use strict';
+_c = (function () {
+  "use strict";
   return {
-    forEachKeyValue: function(obj, fn) {
+    forEachKeyValue: function (obj, fn) {
       const key = null;
-      for(key in obj) {
+      for (key in obj) {
         if (obj.hasOwnProperty(key)) {
           fn(key, obj[key]);
         }
       }
     },
-    each: function(arr, fn) {
+    each: function (arr, fn) {
       let i;
-      for (i=0;i<arr.length;i++) {
+      for (i = 0; i < arr.length; i++) {
         fn(arr[i], i);
       }
     },
-    
-    filter: function(arr, fn) {
+
+    filter: function (arr, fn) {
       let ret = [];
       let i;
-      for(i=0;i<arr.length;i++) {
+      for (i = 0; i < arr.length; i++) {
         if (fn(arr[i])) {
           ret.push(arr[i]);
         }
       }
       return ret;
     },
-    
+
     /**
      * Very basic string formatter for positional and non-positional arguments,
      * python String.format style.
@@ -37,7 +37,7 @@ _c = (function() {
      *   _c.fmt("Someone please call {0} {0} {1}", "one", "two");
      *
      */
-    fmt: function() {
+    fmt: function () {
       let str = arguments[0];
       let i;
       let r;
@@ -51,6 +51,6 @@ _c = (function() {
         }
       }
       return str;
-    }
+    },
   };
 })();
