@@ -123,7 +123,7 @@
             for(x=0;x<line.length;x++) {
               point = line[x];
               color = this.getColorArray(point);
-              var idx = ((this.height - y) * this.width * 4) + (x * 4);
+              const idx = ((this.height - y) * this.width * 4) + (x * 4);
               if (!color) {
                 color = [0, 0, 0, 0];
               }
@@ -219,22 +219,22 @@
      },
 
       tick: function(ctx, diff) {
-        var x;
-        var y;
-        var target;
-        var lower;
-        var middle;
-        var upper;
-        var normalizer = this.normalizer / 200;
-        var minfuel = this.minfuel / 100;
-        var maxfuel = this.maxfuel / 100;
-        var TICK_MS = 20;
-        var xvariation = this.xvariation / 100;
-        var yvariation = this.yvariation / 100;
-        var cellpersistency = this.cellpersistency / 100;
-        var ascent = this.ascent / 100;
-        var xinfluence = this.xinfluence / 100;
-        var yinfluence = this.yinfluence / 100;
+        let x;
+        let y;
+        let target;
+        let lower;
+        let middle;
+        let upper;
+        const normalizer = this.normalizer / 200;
+        const minfuel = this.minfuel / 100;
+        const maxfuel = this.maxfuel / 100;
+        const TICK_MS = 20;
+        const xvariation = this.xvariation / 100;
+        const yvariation = this.yvariation / 100;
+        const cellpersistency = this.cellpersistency / 100;
+        const ascent = this.ascent / 100;
+        const xinfluence = this.xinfluence / 100;
+        const yinfluence = this.yinfluence / 100;
 
         if (this.savedGrids.length >= this.saveLen) {
           return;
@@ -252,16 +252,16 @@
         this.ms = (this.ms || 0) + diff;
 
         function processLine(target, lower, middle, upper) {
-          var length = target.length;
-          var sum;
-          var ybias;
-          var centerbias;
-          var leftbias;
-          var middlebias;
-          var rightbias;
-          var xbias;
-          var topbias;
-          var bottombias;
+          const length = target.length;
+          let sum;
+          let ybias;
+          let centerbias;
+          let leftbias;
+          let middlebias;
+          let rightbias;
+          let xbias;
+          let topbias;
+          let bottombias;
           for(x=0;x<length;x++) {
             sum = 0;
 
@@ -290,11 +290,11 @@
 
 
         while (this.ms > TICK_MS) {
-          var newLine = [];
+          const newLine = [];
           var newVal;
-          var length = this.grid[0].length;
-          var margin = Math.round(this.grid[0].length * 0.1);
-          var fuel = maxfuel - minfuel;
+          const length = this.grid[0].length;
+          const margin = Math.round(this.grid[0].length * 0.1);
+          const fuel = maxfuel - minfuel;
           for(x=0;x<length;x++) {
             if (Math.random() > 0.9 || x === 0) {
               newVal = minfuel + (Math.random() * fuel);
