@@ -45,11 +45,11 @@
     },
 
     draw: function(ctx) {
-      var i;
-      var sorted;
-      var obj;
+      let i;
+      let sorted;
+      let obj;
 
-      var sky = _c.filter(this.children, function(o) {
+      const sky = _c.filter(this.children, function(o) {
          return o && o.roles && o.roles.sky;
       })[0];
 
@@ -78,14 +78,14 @@
     },
 
     clearContext: function(ctx) {
-      var width = ctx.canvas.width;
-      var height = ctx.canvas.height;
+      const width = ctx.canvas.width;
+      const height = ctx.canvas.height;
       ctx.clearRect(0, 0, width, height);
     },
 
     fillContext: function(ctx, fill) {
-      var width = ctx.canvas.width;
-      var height = ctx.canvas.height;
+      const width = ctx.canvas.width;
+      const height = ctx.canvas.height;
       ctx.beginPath();
       ctx.rect(0, 0, width, height);
       ctx.fillStyle = fill;

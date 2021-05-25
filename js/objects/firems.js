@@ -316,14 +316,14 @@
      * initialized offline/offscreen line.
      */
     tick: function(ctx, diff) {
-      var x;
-      var y;
-      var lower;
-      var upper;
-      var lastLine;
-      var burnfactor = (this.burnfactor + (this.useintensitymodulation ? this.burnoffset : 0) + this._boost) / 100;
-      var fuel = this.fuel / 100;
-      var TICK_MS = 20;
+      let x;
+      let y;
+      let lower;
+      let upper;
+      let lastLine;
+      const burnfactor = (this.burnfactor + (this.useintensitymodulation ? this.burnoffset : 0) + this._boost) / 100;
+      const fuel = this.fuel / 100;
+      const TICK_MS = 20;
 
       if (!this.runsimulation) {
         if (this.grid.length < this.height) {
@@ -335,9 +335,9 @@
       this.ms = (this.ms || 0) + diff;
 
       function processLine(lower, upper) {
-        var n;
-        var length = lower.length;
-        var sum;
+        let n;
+        const length = lower.length;
+        let sum;
         for(x=0;x<length;x++) {
           sum = 0;
           n=x-1;
