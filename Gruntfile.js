@@ -1,24 +1,22 @@
-module.exports = function(grunt) {
-
+module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     gitcheckout: {
       master: {
         options: {
-            branch: 'master'
-        }
+          branch: "master",
+        },
       },
       pages: {
         options: {
-            branch: 'gh-pages'
-        }
-      }
-    }
+          branch: "gh-pages",
+        },
+      },
+    },
   });
 
-  grunt.loadNpmTasks('grunt-git');
+  grunt.loadNpmTasks("grunt-git");
 
   // Default task(s).
-  grunt.registerTask('default', ['gitcheckout:pages']);
-
+  grunt.registerTask("default", ["gitcheckout:pages"]);
 };

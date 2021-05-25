@@ -1,20 +1,22 @@
 /*jshint strict: true */
 /*global $ window document CB _c alert loadobjects */
-window.main = (function() {
-  'use strict';
-  let defaultConfig = [ {
-        "classname" : "Sky",
-        "values" : {
-          "light" : 0
-        }
-      }, {
-        "classname":"Firems",
-        values: {
-          x: 0,
-          y: 0
-        }
-        }
-      ];
+window.main = (function () {
+  "use strict";
+  let defaultConfig = [
+    {
+      classname: "Sky",
+      values: {
+        light: 0,
+      },
+    },
+    {
+      classname: "Firems",
+      values: {
+        x: 0,
+        y: 0,
+      },
+    },
+  ];
 
   let fpsEl;
   let textProp;
@@ -24,7 +26,7 @@ window.main = (function() {
   }
 
   function setInputValuesFromObject(obj) {
-    $("input").each(function(idx, field) {
+    $("input").each(function (idx, field) {
       const type = $(field).prop("type");
       if (obj[field.id] !== undefined) {
         if (type === "checkbox") {
@@ -44,7 +46,7 @@ window.main = (function() {
   function registerInputListeners(scene) {
     let fire;
     let propId;
-    $("input").on("change", function(evt) {
+    $("input").on("change", function (evt) {
       let newValue;
       let type = $(evt.target).prop("type");
 
@@ -61,7 +63,7 @@ window.main = (function() {
       }
     });
 
-    $.each(scene.children, function(idx, obj) {
+    $.each(scene.children, function (idx, obj) {
       if (obj instanceof CB.Firems) {
         fire = obj;
       }
@@ -71,15 +73,12 @@ window.main = (function() {
       setInputValuesFromObject(fire);
     }
 
-    $("#boostbutton").on("mousedown", function() {
+    $("#boostbutton").on("mousedown", function () {
       if (fire) {
         fire.boost();
       }
     });
   }
-
-
-
 
   function start(canvasId, controlId) {
     let canvas;
@@ -92,19 +91,21 @@ window.main = (function() {
       return;
     }
 
-    ctx = canvas.getContext('2d');
+    ctx = canvas.getContext("2d");
 
-    world = new CB.Scene({
-      config : defaultConfig
-    }, ctx);
+    world = new CB.Scene(
+      {
+        config: defaultConfig,
+      },
+      ctx
+    );
 
     registerInputListeners(world);
 
     CB.frameloop(ctx, world, null, fpsreporter);
   }
 
-
-  return function(canvasId, controlId) {
-      start(canvasId, controlId);
+  return function (canvasId, controlId) {
+    start(canvasId, controlId);
   };
 })();
